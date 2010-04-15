@@ -1,0 +1,14 @@
+--- origsrc/sgmltools-lite-3.0.3/python/backends/Ld2db.py	2000-08-03 07:38:57.000000000 -0500
++++ src/sgmltools-lite-3.0.3/python/backends/Ld2db.py	2010-04-04 17:04:58.487789000 -0500
+@@ -40,9 +40,9 @@ class Ld2db(Backend):
+ 		newcatfiles.append(i)
+ 	    elif string.find(i, 'stylesheets/sgmltools') != -1:
+ 		newcatfiles.append(i)
+-	    elif string.find(i, 'dtd/jade') != -1:
++	    elif string.find(i, 'OpenJade') != -1:
+ 		newcatfiles.append(i)
+-	    elif string.find(i, 'entities/iso-entities-8879.1986') != -1:
++	    elif string.find(i, 'entities/sgml-iso-entities-8879.1986') != -1:
+ 		newcatfiles.append(i)
+ 
+ 	os.environ["SGML_CATALOG_FILES"] = string.join(newcatfiles, ':')

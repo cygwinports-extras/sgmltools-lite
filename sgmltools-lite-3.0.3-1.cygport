@@ -1,0 +1,22 @@
+
+HOMEPAGE="http://sgmltools-lite.sourceforge.net/"
+SRC_URI="mirror://sourceforge/sgmltools-lite/${P}.tar.gz"
+
+CYGCONF_ARGS="--with-dbimages=/usr/share/sgml/docbook/dsssl-stylesheets/images"
+USE_DESTDIR=0
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall etcdir=${D}/etc/sgml
+
+	rm -f ${D}/etc/sgml/catalog.{rh62,suse}
+	# provided by sgml-common
+	rm -f ${D}/usr/bin/sgmlwhich
+}
